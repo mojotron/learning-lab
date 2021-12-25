@@ -1,0 +1,30 @@
+{
+  "name": "learning-lab",
+  "private": true,
+  "version": "1.0.0",
+  "description": "This project is sandbox for practicing JavaScript. By building small project associated with modern web pages. Goal of this repo is to build, test, and play with JavaScript and learn along the way. Inspirations for mini projects are from different tutorials, videos and web sites. Best way to learn different techinges is to build it.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config webpack.common.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mojotron/learning-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mojotron/learning-lab/issues"
+  },
+  "homepage": "https://github.com/mojotron/learning-lab#readme",
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "prettier": "^2.5.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}
