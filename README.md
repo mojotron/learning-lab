@@ -4,6 +4,8 @@ This project is sandbox for practicing JavaScript. By building small project ass
 
 ## 1. Dark Mode Switch
 
+How to create custom checkbox, hiding default checbox and create custom with ::before and ::after pseudo selectors. Set property to css root via document.documentElement.style.setProperty('--variable', 'value');
+
 ## 2. Dropdown Menu
 
 ## 3.Mobile menu - hamburger

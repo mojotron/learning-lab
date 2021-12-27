@@ -1,3 +1,59 @@
+:root {
+  --dark-color: rgb(11, 61, 77);
+  --light-color: rgb(193, 226, 247);
+  --primary-color: var(--light-color);
+  --secondary-color: var(--dark-color);
+
+  --purple: #4c0099;
+  --green: #79fc1d;
+}
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+  user-select: none; /* TEMP */
+}
 body {
-  background: rgb(138, 4, 138);
+  height: 100vh;
+  width: 100%;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+
+  transition: all ease-in 0.5s;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* DARK MODE*/
+.dark-mode {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  background: var(--primary-color);
+  border: 1px solid var(--secondary-color);
+  width: 6rem;
+  height: 3rem;
+  border-radius: 2rem;
+  transition: all ease-in 0.5s;
+}
+.dark-mode__checkbox {
+  display: none;
+}
+.check::before {
+  content: '';
+  height: 2.9rem;
+  width: 2.9rem;
+  background: var(--secondary-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  transition: all ease-in 0.5s;
+}
+.dark-mode__checkbox:checked + .check::before {
+  left: 3rem;
 }
