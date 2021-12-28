@@ -7,10 +7,40 @@
     <title>Learning Lab | try - test -build</title>
   </head>
   <body>
+    <nav class="dropdown">
+      <button class="dropdown__btn"><a href="">home</a></button>
+      <div class="dropdown__wrapper projects">
+        <button class="dropdown__btn">Projects</button>
+
+        <ul class="dropdown__list">
+          <div class="arrow"></div>
+          <li><a href="#">Project 01</a></li>
+          <li><a href="#">Project 02</a></li>
+          <li><a href="#">Project 03</a></li>
+          <li><a href="#">Project 04</a></li>
+          <li><a href="#">Project 05</a></li>
+        </ul>
+      </div>
+      <div class="dropdown__wrapper resources">
+        <button class="dropdown__btn">Resources</button>
+        <ul class="dropdown__list">
+          <span class="arrow"></span>
+          <li><a href="#">Resource 01</a></li>
+          <li><a href="#">Resource 02</a></li>
+          <li><a href="#">Resource 03</a></li>
+          <li><a href="#">Resource 04</a></li>
+          <li><a href="#">Resource 05</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <h1>learning lab</h1>
+
     <div class="dark-mode">
       <input id="dark-mode-check" class="dark-mode__checkbox" type="checkbox" />
       <label for="dark-mode-check" class="check"></label>
     </div>
+
+    <div class="project-display"></div>
   </body>
 </html>

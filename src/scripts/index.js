@@ -1,5 +1,5 @@
 import '../styles/main.css';
-
+// Dark team
 const darkModeCheckbox = document.querySelector('.dark-mode__checkbox');
 
 function darkModeHandler() {
@@ -25,3 +25,14 @@ function darkModeHandler() {
 }
 
 darkModeCheckbox.addEventListener('change', darkModeHandler);
+// Drop down menu
+document.addEventListener('click', e => {
+  document.querySelectorAll('.dropdown__list').forEach(ele => {
+    ele.classList.remove('active-menu');
+  });
+
+  const dropdown = e.target.matches('.dropdown__btn');
+  if (!dropdown) return;
+
+  e.target.nextElementSibling.classList.toggle('active-menu');
+});
