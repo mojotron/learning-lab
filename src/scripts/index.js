@@ -27,12 +27,17 @@ function darkModeHandler() {
 darkModeCheckbox.addEventListener('change', darkModeHandler);
 // Drop down menu
 document.addEventListener('click', e => {
-  document.querySelectorAll('.dropdown__list').forEach(ele => {
-    ele.classList.remove('active-menu');
+  const isDropdownBtn = e.target.matches('.dropdown__btn');
+  if (!isDropdownBtn && e.target.closest('.dropdown') !== null) return;
+
+  let currentDropDown;
+  if (isDropdownBtn) {
+    currentDropDown = e.target.closest('.dropdown');
+    currentDropDown.classList.toggle('dropdown--active');
+  }
+
+  document.querySelectorAll('.dropdown--active').forEach(dropdown => {
+    if (dropdown === currentDropDown) return;
+    dropdown.classList.remove('dropdown--active');
   });
-
-  const dropdown = e.target.matches('.dropdown__btn');
-  if (!dropdown) return;
-
-  e.target.nextElementSibling.classList.toggle('active-menu');
 });

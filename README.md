@@ -8,10 +8,13 @@ How to create custom checkbox, hiding default checbox and create custom with ::b
 
 ## 2. Dropdown Menu
 
+https://www.youtube.com/watch?v=S-VeYcOCFZw
 Emmet.
 pointer-events: none;
 pointer-events: auto;
 
-## 3.Mobile menu - hamburger
+## 3. Sticky nav bar
 
-## 4. Image slider
+## 4.Mobile menu - hamburger
+
+## 5. Image slider
