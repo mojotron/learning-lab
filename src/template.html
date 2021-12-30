@@ -7,28 +7,78 @@
     <title>Learning Lab | try - test -build</title>
   </head>
   <body>
-    <h1>learning lab</h1>
+    <header class="header">
+      <div class="logo">🧪</div>
 
-    <div class="dropdown">
-      <button class="dropdown__btn">Projects</button>
-      <div class="dropdown__menu">
-        <div class="dropdown__menu__arrow"></div>
-        <div class="dropdown__menu__content">
-          <span href="#" class="dropdown__menu__content__link">Project 01</span
-          ><span href="#" class="dropdown__menu__content__link">Project 02</span
-          ><span href="#" class="dropdown__menu__content__link">Project 03</span
-          ><span href="#" class="dropdown__menu__content__link">Project 04</span
-          ><span href="#" class="dropdown__menu__content__link"
-            >Project 05</span
-          >
-        </div>
+      <nav class="top-nav">
+        <ul class="top-nav__list">
+          <li class="top-nav__list__item">Home</li>
+          <li class="top-nav__list__item">About</li>
+          <li class="top-nav__list__item">Contacts</li>
+          <li class="top-nav__list__item">
+            <div class="dropdown">
+              <button class="dropdown__btn">Dropdown 1</button>
+              <div class="dropdown__menu">
+                <div class="dropdown__menu__arrow"></div>
+                <div class="dropdown__menu__content">
+                  <span class="dropdown__menu__content__link">
+                    Project 01
+                  </span>
+                  <span class="dropdown__menu__content__link">
+                    Project 02
+                  </span>
+                  <span class="dropdown__menu__content__link">
+                    Project 03
+                  </span>
+                  <span class="dropdown__menu__content__link">
+                    Project 04
+                  </span>
+                  <span class="dropdown__menu__content__link">
+                    Project 05
+                  </span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="top-nav__list__item">
+            <div class="dropdown">
+              <button class="dropdown__btn">Dropdown 2</button>
+              <div class="dropdown__menu">
+                <div class="dropdown__menu__arrow"></div>
+                <div class="dropdown__menu__content">
+                  <span class="dropdown__menu__content__link">
+                    Project 01
+                  </span>
+                  <span class="dropdown__menu__content__link">
+                    Project 02
+                  </span>
+                  <span class="dropdown__menu__content__link">
+                    Project 03
+                  </span>
+                  <span class="dropdown__menu__content__link">
+                    Project 04
+                  </span>
+                  <span class="dropdown__menu__content__link">
+                    Project 05
+                  </span>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="top-nav__toggle-btn">&#9776;</button>
+
+      <div class="dark-mode">
+        <input
+          id="dark-mode-check"
+          class="dark-mode__checkbox"
+          type="checkbox"
+        />
+        <label for="dark-mode-check" class="check"></label>
       </div>
-    </div>
-
-    <div class="dark-mode">
-      <input id="dark-mode-check" class="dark-mode__checkbox" type="checkbox" />
-      <label for="dark-mode-check" class="check"></label>
-    </div>
+    </header>
 
     <div class="project-display"></div>
   </body>
