@@ -41,3 +41,11 @@ document.addEventListener('click', e => {
     dropdown.classList.remove('dropdown--active');
   });
 });
+// mobile menu
+const mobileMenu = document.querySelector('.top-nav__toggle-btn');
+mobileMenu.addEventListener('click', e => {
+  e.target.textContent = e.target.textContent === 'x' ? '\u2630' : 'x';
+  document
+    .querySelector(`.top-nav__links__list`)
+    .classList.toggle('active-toggle');
+});

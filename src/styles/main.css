@@ -30,42 +30,6 @@ body {
   margin: 0;
   padding: 0;
 }
-.header {
-  /* height: 10vh; */
-  width: 100%;
-  background-color: var(--secondary-color);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-.top-nav {
-  height: 100%;
-  width: 50%;
-  color: var(--primary-color);
-  background: var(--secondary-color);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  height: 6rem;
-  width: 6rem;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  font-size: 5rem;
-}
-.top-nav__list {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  list-style: none;
-}
-.top-nav__list__item {
-  font-size: 2rem;
-  cursor: pointer;
-}
 
 /* DARK MODE*/
 .dark-mode {
@@ -151,27 +115,58 @@ body {
   color: var(--green);
 }
 /* mobile menu */
-.top-nav__toggle-btn {
-  cursor: pointer;
-  display: block;
+.top-nav {
   position: relative;
-  bottom: 0.75rem;
-  height: 4rem;
-  width: 4rem;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+.top-nav__logo {
+  font-size: 6rem;
+}
+.top-nav__links__list {
+  list-style: none;
+  display: flex;
+}
+.top-nav__links__list__item {
+  font-size: 2.5rem;
+  padding: 0 0.5rem;
+}
+.top-nav__links__list__item:hover {
+  color: var(--green);
+}
+.top-nav__toggle-btn {
+  display: block;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 4rem;
   border: none;
   background: none;
   color: var(--primary-color);
-  font-size: 4rem;
   display: none;
+  cursor: pointer;
 }
-
 @media (max-width: 786px) {
-  .top-nav {
+  .top-nav__toggle-btn {
+    display: flex;
   }
-  .top-nav__list {
+  .top-nav__links {
+    width: 100%;
+  }
+  .top-nav {
+    align-items: flex-start;
     flex-direction: column;
   }
-  .top-nav__toggle-btn {
-    display: block;
+  .top-nav__links__list {
+    flex-direction: column;
+    text-align: center;
+    display: none;
+  }
+  .top-nav__links__list.active-toggle {
+    display: flex;
   }
 }
