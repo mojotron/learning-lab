@@ -18,3 +18,5 @@ pointer-events: auto;
 ## 4.Mobile menu - hamburger
 
 ## 5. Image slider
+
+Webpack image loading.
