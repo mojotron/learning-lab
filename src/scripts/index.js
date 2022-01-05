@@ -1,5 +1,12 @@
 import '../styles/main.css';
 import imageSlider from './image-slider';
+import DropdownMenu from './dropdown-menu';
+// TODO learn how to dynamically load image paths
+// for now this is hard coded names of the images
+import image1 from '../images/image1.jpg';
+import image2 from '../images/image2.jpg';
+import image3 from '../images/image3.jpg';
+
 // Dark team
 const darkModeCheckbox = document.querySelector('.dark-mode__checkbox');
 
@@ -50,13 +57,13 @@ mobileMenu.addEventListener('click', e => {
     .querySelector(`.top-nav__links__list`)
     .classList.toggle('active-toggle');
 });
+
 // slider
-// TODO learn how to dynamically load image paths
-// for now this is hard coded names of the images
-const paths = [
-  '../images/image1.jpg',
-  '../images/image2.jpg',
-  '../images/image3.jpg',
-];
+
+const paths = [image1, image2, image3];
 const slider = imageSlider.createSlider(paths);
 document.body.append(slider);
+// test dynamic dropdown
+const { body } = document;
+const dropdown1 = DropdownMenu('Hello World', body);
+dropdown1.createLink('project X');
