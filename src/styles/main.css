@@ -112,6 +112,14 @@ body {
   flex-direction: column;
   gap: 1rem;
 }
+.dropdown__menu__content__link {
+  display: block;
+  padding: 0 0.5rem;
+  text-decoration: none;
+}
+.dropdown__menu__content__link:visited {
+  color: var(--secondary-color);
+}
 .dropdown__menu__content__link:hover {
   color: var(--green);
 }

@@ -1,9 +1,9 @@
 import '../styles/image-slider.css';
 
-function ImageSlider() {
+export default function ImageSlider(parentElement, images) {
+  const imageCount = images.length;
   let currentSlide;
   let rootElement;
-  let imageCount;
   let timerId;
 
   const moveRight = () => {
@@ -91,14 +91,12 @@ function ImageSlider() {
     return dotElement;
   };
 
-  const createSlider = imgPathsArr => {
-    imageCount = imgPathsArr.length;
-
+  const createSlider = () => {
     const sliderElement = document.createElement('div');
     sliderElement.className = 'slider';
     // create slides
-    imgPathsArr.forEach(path => {
-      sliderElement.insertAdjacentElement('beforeend', createSlide(path));
+    images.forEach(imagePath => {
+      sliderElement.insertAdjacentElement('beforeend', createSlide(imagePath));
     });
     // create arrow buttons
     sliderElement.insertAdjacentElement(
@@ -121,10 +119,12 @@ function ImageSlider() {
       if (e.key === 'ArrowLeft') moveLeft();
     });
 
-    return sliderElement;
+    parentElement.insertAdjacentElement('beforeend', sliderElement);
   };
 
-  return { createSlider };
-}
+  const init = () => {
+    createSlider();
+  };
 
-export default ImageSlider();
+  init();
+}

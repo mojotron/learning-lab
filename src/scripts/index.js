@@ -1,5 +1,5 @@
 import '../styles/main.css';
-import imageSlider from './image-slider';
+import ImageSlider from './image-slider';
 import DropdownMenu from './dropdown-menu';
 // TODO learn how to dynamically load image paths
 // for now this is hard coded names of the images
@@ -34,21 +34,24 @@ function darkModeHandler() {
 
 darkModeCheckbox.addEventListener('change', darkModeHandler);
 // Drop down menu
-document.addEventListener('click', e => {
-  const isDropdownBtn = e.target.matches('.dropdown__btn');
-  if (!isDropdownBtn && e.target.closest('.dropdown') !== null) return;
-
-  let currentDropDown;
-  if (isDropdownBtn) {
-    currentDropDown = e.target.closest('.dropdown');
-    currentDropDown.classList.toggle('dropdown--active');
-  }
-
-  document.querySelectorAll('.dropdown--active').forEach(dropdown => {
-    if (dropdown === currentDropDown) return;
-    dropdown.classList.remove('dropdown--active');
-  });
-});
+DropdownMenu('Projects', document.querySelector('[data-projects-dropdown]'), [
+  { label: 'project 01', path: '#' },
+  { label: 'project 02', path: '#' },
+  { label: 'project 03', path: '#' },
+  { label: 'project 04', path: '#' },
+  { label: 'project 05', path: '#' },
+]);
+DropdownMenu(
+  'Useful Recourses',
+  document.querySelector('[data-useful-recourses]'),
+  [
+    { label: 'Recourse 01', path: '#' },
+    { label: 'Recourse 02', path: '#' },
+    { label: 'Recourse 03', path: '#' },
+    { label: 'Recourse 04', path: '#' },
+    { label: 'Recourse 05', path: '#' },
+  ]
+);
 // mobile menu
 const mobileMenu = document.querySelector('.top-nav__toggle-btn');
 mobileMenu.addEventListener('click', e => {
@@ -59,11 +62,4 @@ mobileMenu.addEventListener('click', e => {
 });
 
 // slider
-
-const paths = [image1, image2, image3];
-const slider = imageSlider.createSlider(paths);
-document.body.append(slider);
-// test dynamic dropdown
-const { body } = document;
-const dropdown1 = DropdownMenu('Hello World', body);
-dropdown1.createLink('project X');
+ImageSlider(document.body, [image1, image2, image3]);

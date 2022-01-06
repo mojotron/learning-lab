@@ -1,17 +1,31 @@
-export default function DropdownMenu(dropdownName, parentElement) {
-  let menuElement;
+export default function DropdownMenu(dropdownName, parentElement, links = []) {
+  let contentElement;
 
   const createElement = (tagName, className) => {
     const element = document.createElement(tagName);
     element.className = className;
     return element;
   };
+  const buttonHandler = e => {
+    const isDropdownBtn = e.target.matches('.dropdown__btn');
+    if (!isDropdownBtn && e.target.closest('.dropdown') !== null) return;
+
+    let currentDropDown;
+    if (isDropdownBtn) {
+      currentDropDown = e.target.closest('.dropdown');
+      currentDropDown.classList.toggle('dropdown--active');
+    }
+
+    document.body.querySelectorAll('.dropdown--active').forEach(dropdown => {
+      if (dropdown === currentDropDown) return;
+      dropdown.classList.remove('dropdown--active');
+    });
+  };
 
   const createButton = label => {
     const btnElement = document.createElement('button');
     btnElement.className = 'dropdown__btn';
     btnElement.textContent = label;
-
     return btnElement;
   };
 
@@ -19,7 +33,7 @@ export default function DropdownMenu(dropdownName, parentElement) {
     const linkElement = createElement('a', 'dropdown__menu__content__link');
     linkElement.href = targetPath;
     linkElement.textContent = label;
-    menuElement.insertAdjacentElement('beforeend', linkElement);
+    contentElement.insertAdjacentElement('beforeend', linkElement);
   };
 
   const creatDropdown = label => {
@@ -29,23 +43,29 @@ export default function DropdownMenu(dropdownName, parentElement) {
     dropdownElement.insertAdjacentElement('beforeend', createButton(label));
     // -create menu
     const dropdownMenu = createElement('div', 'dropdown__menu');
-    menuElement = dropdownMenu;
+
     dropdownElement.insertAdjacentElement('beforeend', dropdownMenu);
     // --create arrow
     dropdownMenu.insertAdjacentElement(
       'beforeend',
       createElement('div', 'dropdown__menu__arrow')
     );
+
     // --create content container
     const dropdownContent = createElement('div', 'dropdown__menu__content');
+    contentElement = dropdownContent;
     dropdownMenu.insertAdjacentElement('beforeend', dropdownContent);
     // ----create links
-
+    if (links.length > 0) {
+      links.forEach(link => createLink(link.label, link.path));
+    }
     parentElement.insertAdjacentElement('beforeend', dropdownElement);
   };
 
   const init = () => {
-    creatDropdown(dropdownName, parentElement);
+    const hasDropdown = document.querySelector('.dropdown');
+    creatDropdown(dropdownName, parentElement, links);
+    if (hasDropdown) document.addEventListener('click', buttonHandler);
   };
 
   init();
