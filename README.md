@@ -19,4 +19,6 @@ pointer-events: auto;
 
 ## 5. Image slider
 
+## 6. Client form validationS
+
 Webpack image loading.

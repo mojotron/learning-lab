@@ -31,5 +31,68 @@
         </div>
       </div>
     </nav>
+
+    <div class="form">
+      <div class="form__header">
+        <h2 class="form__header__headings">Create Account</h2>
+      </div>
+      <form class="form__body">
+        <div class="form__field">
+          <label for="username">username</label>
+          <input
+            class="form__field__input"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="username"
+          />
+          <span class="form__field__icon">&#10004;</span>
+          <span class="form__field__icon">&#9760;</span>
+          <span class="form__field__error">Error Message</span>
+        </div>
+
+        <div class="form__field">
+          <label for="email">email</label>
+          <input
+            class="form__field__input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="example@email.com"
+          />
+          <span class="form__field__icon">&#10004;</span>
+          <span class="form__field__icon">&#9760;</span>
+          <span class="form__field__error">Error Message</span>
+        </div>
+
+        <div class="form__field">
+          <label for="password-1">password</label>
+          <input
+            class="form__field__input"
+            type="password-1"
+            name="password-1"
+            id="password"
+          />
+          <span class="form__field__icon">&#10004;</span>
+          <span class="form__field__icon">&#9760;</span>
+          <span class="form__field__error">Error Message</span>
+        </div>
+
+        <div class="form__field">
+          <label for="password-2">retype password</label>
+          <input
+            class="form__field__input"
+            type="password-2"
+            name="password-2"
+            id="password"
+          />
+          <span class="form__field__icon">&#10004;</span>
+          <span class="form__field__icon">&#9760;</span>
+          <span class="form__field__error">Error Message</span>
+        </div>
+
+        <button class="form__btn" type="submit">Submit</button>
+      </form>
+    </div>
   </body>
 </html>

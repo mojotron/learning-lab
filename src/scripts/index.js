@@ -33,7 +33,7 @@ function darkModeHandler() {
 }
 
 darkModeCheckbox.addEventListener('change', darkModeHandler);
-// Drop down menu
+// plug in Drop down menu inside nav bar
 DropdownMenu('Projects', document.querySelector('[data-projects-dropdown]'), [
   { label: 'project 01', path: '#' },
   { label: 'project 02', path: '#' },
@@ -61,5 +61,5 @@ mobileMenu.addEventListener('click', e => {
     .classList.toggle('active-toggle');
 });
 
-// slider
+// plug in imgae slider to the body
 ImageSlider(document.body, [image1, image2, image3]);
