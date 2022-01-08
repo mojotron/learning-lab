@@ -32,7 +32,7 @@
       </div>
     </nav>
 
-    <div class="form">
+    <div class="form" action="/" method="GET">
       <div class="form__header">
         <h2 class="form__header__headings">Create Account</h2>
       </div>
@@ -46,8 +46,8 @@
             id="username"
             placeholder="username"
           />
-          <span class="form__field__icon">&#10004;</span>
-          <span class="form__field__icon">&#9760;</span>
+          <span class="form__field__icon icon--ok">&#10004;</span>
+          <span class="form__field__icon icon--error">&#9760;</span>
           <span class="form__field__error">Error Message</span>
         </div>
 
@@ -69,7 +69,7 @@
           <label for="password-1">password</label>
           <input
             class="form__field__input"
-            type="password-1"
+            type="password"
             name="password-1"
             id="password"
           />
@@ -82,7 +82,7 @@
           <label for="password-2">retype password</label>
           <input
             class="form__field__input"
-            type="password-2"
+            type="password"
             name="password-2"
             id="password"
           />
