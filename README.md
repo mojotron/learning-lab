@@ -19,6 +19,10 @@ pointer-events: auto;
 
 ## 5. Image slider
 
-## 6. Client form validationS
+## 6. Client form validation
+
+https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation
+
+https://www.smashingmagazine.com/2012/06/form-field-validation-errors-only-approach/
 
 Webpack image loading.

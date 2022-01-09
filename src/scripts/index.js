@@ -86,6 +86,40 @@ const validateUsername = value => {
   return false;
 };
 
+const validateEmail = value => {
+  const emailRegex =
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if (value === '') return 'Email input field is empty';
+  if (!value.match(emailRegex))
+    return 'Please enter valid email form (example@email.cim)!';
+  return false;
+};
+
+const validatePassword = value => {
+  const charRegex = /[?=.*?[#?!@$%^&*-]/;
+  const upperCaseRegex = /[A-Z]/;
+  const lowerCaseRegex = /[a-z]/;
+  const numberRegex = /[0-9]/;
+  if (value === '') return 'Pease create password!';
+  if (value.length < 8) return 'password must be at least 8 characters long!';
+  if (value.length > 32) return 'Password maximum length is 32 characters!';
+  if (!value.match(charRegex))
+    return 'Pasword must include at least 1 special character!';
+  if (!value.match(upperCaseRegex))
+    return 'Password must include at least 1 upper case character!';
+  if (!value.match(lowerCaseRegex))
+    return 'Password must include at least 1 lower case character!';
+  if (!value.match(numberRegex))
+    return 'Password must include at least 1 numeric character!';
+  return false;
+};
+
+const validatePasswordRetype = value => {
+  if (value !== document.querySelector('#password-1').value)
+    return 'Passwords miss match';
+  return false;
+};
+
 formElement.addEventListener('submit', e => {
   e.preventDefault();
   const usernameCheck = validateUsername(username.value);
@@ -122,6 +156,27 @@ formElement.querySelectorAll('input').forEach(input =>
       } else {
         errorEle.style.display = 'none';
       }
+    }
+    if (e.target.matches('#email')) {
+      const emailCheck = validateEmail(e.target.value);
+      console.log(e.target.value);
+      console.log(emailCheck);
+    }
+    if (e.target.matches('#password-1')) {
+      const passwordCheck = validatePassword(e.target.value);
+      const errorEle = e.target.parentElement.querySelector(
+        '.form__field__error'
+      );
+      if (passwordCheck) {
+        errorEle.innerText = passwordCheck;
+        errorEle.style.display = 'block';
+      } else {
+        errorEle.style.display = 'none';
+      }
+    }
+    if (e.target.matches('#password-2')) {
+      const passwordRetypeCheck = validatePasswordRetype(e.target.value);
+      console.log(passwordRetypeCheck);
     }
   })
 );
