@@ -227,10 +227,20 @@ body {
   display: none;
 }
 .form__field__error {
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: rgb(179, 58, 58);
   display: none;
 }
+.icon--ok {
+  color: rgb(122, 236, 122);
+}
+.icon--error {
+  color: rgb(179, 58, 58);
+}
+.active {
+  display: block;
+}
+
 .form__btn {
   display: block;
   border: none;
@@ -240,6 +250,10 @@ body {
   font-size: 2rem;
   border-radius: 1rem;
   margin: 2rem auto 0;
+}
+input:focus {
+  outline: none;
+  background: linear-gradient(45deg, rgb(245, 219, 73), rgb(255, 255, 255));
 }
 
 @media (max-width: 786px) {
