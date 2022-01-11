@@ -62,7 +62,8 @@ mobileMenu.addEventListener('click', e => {
 });
 
 // plug in image slider to the body
-ImageSlider(document.body, [image1, image2, image3]);
+const projectShowcase = document.querySelector('.project-showcase__display');
+ImageSlider(projectShowcase, [image1, image2, image3]);
 
 // client form validation
 const formElement = document.querySelector('.form');
