@@ -1,6 +1,6 @@
 import '../styles/image-slider.css';
 
-export default function ImageSlider(parentElement, images) {
+export default function ImageSlider(...images) {
   const imageCount = images.length;
   let currentSlide;
   let rootElement;
@@ -119,12 +119,10 @@ export default function ImageSlider(parentElement, images) {
       if (e.key === 'ArrowLeft') moveLeft();
     });
 
-    parentElement.insertAdjacentElement('beforeend', sliderElement);
+    return sliderElement;
   };
 
-  const init = () => {
-    createSlider();
-  };
+  const init = () => createSlider();
 
-  init();
+  return init();
 }

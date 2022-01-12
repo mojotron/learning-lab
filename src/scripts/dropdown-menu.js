@@ -36,6 +36,13 @@ export default function DropdownMenu(dropdownName, parentElement, links = []) {
     contentElement.insertAdjacentElement('beforeend', linkElement);
   };
 
+  const createDataSpan = (label, dataId, dataValue) => {
+    const spanElement = createElement('span', 'dropdown__menu__content__link');
+    spanElement.dataset[dataId] = dataValue;
+    spanElement.textContent = label;
+    contentElement.insertAdjacentElement('beforeend', spanElement);
+  };
+
   const creatDropdown = label => {
     // create dropdown container
     const dropdownElement = createElement('div', 'dropdown');
@@ -65,10 +72,14 @@ export default function DropdownMenu(dropdownName, parentElement, links = []) {
   const init = () => {
     const hasDropdown = document.querySelector('.dropdown');
     creatDropdown(dropdownName, parentElement, links);
-    if (hasDropdown) document.addEventListener('click', buttonHandler);
+    if (!hasDropdown) document.addEventListener('click', buttonHandler);
   };
 
   init();
 
-  return { createLink };
+  const addHandlerLinks = handler => {
+    contentElement.addEventListener('click', handler);
+  };
+
+  return { createLink, createDataSpan, addHandlerLinks };
 }

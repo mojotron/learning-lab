@@ -1,17 +1,5 @@
 function ProjectShowcase() {
-  // const parentElement = document.querySelector('.project-showcase');
-  const projects = [];
-
-  const add = project => {
-    // form {name, crate logic}
-    projects.push(project);
-  };
-
-  // const removeCurrent = () => {
-  //   parentElement.innerHTML = '';
-  // }
-
-  return { add };
+  // just display project
 }
 
 export default ProjectShowcase();
