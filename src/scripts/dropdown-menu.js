@@ -78,7 +78,10 @@ export default function DropdownMenu(dropdownName, parentElement, links = []) {
   init();
 
   const addHandlerLinks = handler => {
-    contentElement.addEventListener('click', handler);
+    contentElement.addEventListener('click', e => {
+      e.target.closest('.dropdown').classList.remove('dropdown--active');
+      handler(e);
+    });
   };
 
   return { createLink, createDataSpan, addHandlerLinks };

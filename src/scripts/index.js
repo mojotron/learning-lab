@@ -1,5 +1,6 @@
 import '../styles/main.css';
-// import projectShowcase from './project-showcase';
+import projectShowcase from './project-showcase';
+
 import ImageSlider from './image-slider';
 import DropdownMenu from './dropdown-menu';
 
@@ -31,12 +32,9 @@ function darkModeHandler() {
     );
   }
 }
-
 darkModeCheckbox.addEventListener('change', darkModeHandler);
 
-// plug in Drop down menu inside nav bar
-
-// // mobile menu
+// mobile menu
 const mobileMenu = document.querySelector('.top-nav__toggle-btn');
 mobileMenu.addEventListener('click', e => {
   e.target.textContent = e.target.textContent === 'x' ? '\u2630' : 'x';
@@ -44,30 +42,42 @@ mobileMenu.addEventListener('click', e => {
     .querySelector(`.top-nav__links__list`)
     .classList.toggle('active-toggle');
 });
-
-// plug in image slider to the body
-const projectShowcasex = document.querySelector('.project-showcase__display');
-const x = ImageSlider(image1, image2, image3);
-projectShowcasex.append(x);
+//
 
 // implement showcase
-// data -> dropdown menu list -> user clicks on link -> send label to showcase ->
-// showcase asks for dom element with that label -> display project
 
-const dd = DropdownMenu(
-  'Mini Projects',
+const miniProjectDropdown = DropdownMenu(
+  'MiniProjects',
   document.querySelector('[data-projects-dropdown]')
 );
-dd.createDataSpan('image slider', 'miniProject', 'image-slider');
-dd.addHandlerLinks(e => {
-  console.log(e.target.dataset.miniProject);
-});
-const projectsState = {
-  projects: [],
 
-  addProject(label, domElement) {
-    this.projects.push({ label, domElement });
+const miniProjectController = e => {
+  const projectId = e.target.dataset.miniProject;
+  const project = projectsState.projects[projectId];
+  projectShowcase.display(project);
+};
+
+miniProjectDropdown.addHandlerLinks(miniProjectController);
+
+const projectsState = {
+  projects: {},
+
+  add(label, domElement) {
+    this.projects[label] = { label: label.replaceAll('-', ' '), domElement };
+    this.addLinkToDropdown(label);
+  },
+
+  addLinkToDropdown(label) {
+    miniProjectDropdown.createDataSpan(
+      label.replaceAll('-', ' '),
+      'miniProject',
+      label
+    );
+  },
+
+  getProject(label) {
+    return this.projects[label];
   },
 };
 
-projectsState.addProject('image-slider', ImageSlider(image1, image2, image3));
+projectsState.add('image-slider', ImageSlider(image1, image2, image3));
