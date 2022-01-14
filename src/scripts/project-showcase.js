@@ -3,6 +3,7 @@ function ProjectShowcase() {
   const displayElement = document.querySelector('.project-showcase__display');
 
   const display = project => {
+    displayElement.innerHTML = '';
     const { label, domElement } = project;
     titleElement.innerText = label;
     displayElement.insertAdjacentElement('afterbegin', domElement);

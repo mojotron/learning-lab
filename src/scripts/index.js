@@ -8,6 +8,9 @@ import image1 from '../images/image1.jpg';
 import image2 from '../images/image2.jpg';
 import image3 from '../images/image3.jpg';
 
+//
+import { FormCreateAccount } from './form-validation';
+
 // Dark team
 const darkModeCheckbox = document.querySelector('.dark-mode__checkbox');
 
@@ -81,3 +84,4 @@ const projectsState = {
 };
 
 projectsState.add('image-slider', ImageSlider(image1, image2, image3));
+projectsState.add('form-validation', FormCreateAccount());
