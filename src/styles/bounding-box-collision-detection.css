@@ -1,0 +1,29 @@
+.box-collision {
+  height: 100%;
+  width: 100%;
+  background: rgb(41, 35, 35);
+  position: relative;
+}
+.box-collision__box {
+  position: absolute;
+  height: 10vmin;
+  width: 10vmin;
+  border: 3px solid rgb(143, 29, 29);
+  font-size: 5vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(143, 29, 29);
+}
+.box--a {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.box--b {
+  --x: 25;
+  --y: 25;
+
+  top: calc(var(--y) * 1%);
+  left: calc(var(--x) * 1%);
+}

@@ -3,6 +3,7 @@ import projectShowcase from './project-showcase';
 
 import ImageSlider from './image-slider';
 import DropdownMenu from './dropdown-menu';
+import BoundingBoxCollision from './bounding-box-collision-detection';
 
 import image1 from '../images/image1.jpg';
 import image2 from '../images/image2.jpg';
@@ -48,7 +49,6 @@ mobileMenu.addEventListener('click', e => {
 //
 
 // implement showcase
-
 const miniProjectDropdown = DropdownMenu(
   'MiniProjects',
   document.querySelector('[data-projects-dropdown]')
@@ -85,3 +85,5 @@ const projectsState = {
 
 projectsState.add('image-slider', ImageSlider(image1, image2, image3));
 projectsState.add('form-validation', FormCreateAccount());
+projectsState.add('bounding-box-collision-detection', BoundingBoxCollision());
+projectShowcase.display(projectsState.projects['image-slider']);

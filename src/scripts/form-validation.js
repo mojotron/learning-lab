@@ -183,4 +183,3 @@ export function FormCreateAccount() {
 
   return element;
 }
-// TODO validate form submit
