@@ -8,30 +8,44 @@ export default function BoundingBoxCollision() {
   parentElement.append(boxA);
   parentElement.append(boxB);
 
+  const getBoxX = boxElement =>
+    parseFloat(getComputedStyle(boxElement).getPropertyValue('--x'));
+
+  const setBoxX = (boxElement, value) => {
+    boxElement.style.setProperty('--x', value);
+  };
+
+  const getBoxY = boxElement =>
+    parseFloat(getComputedStyle(boxElement).getPropertyValue('--y'));
+
+  const setBoxY = (boxElement, value) => {
+    boxElement.style.setProperty('--y', value);
+  };
+
   document.body.addEventListener(
     'keydown',
     e => {
-      if (e.key === 'ArrowDown') {
-        e.stopPropagation();
-        const temp = parseFloat(getComputedStyle(boxB).getPropertyValue('--y'));
-        boxB.style.setProperty('--y', temp + 1);
-      }
-      if (e.key === 'ArrowUp') {
-        e.stopPropagation();
-        const temp = parseFloat(getComputedStyle(boxB).getPropertyValue('--y'));
-        boxB.style.setProperty('--y', temp - 1);
-      }
-      if (e.key === 'ArrowRight') {
-        const temp = parseFloat(getComputedStyle(boxB).getPropertyValue('--x'));
-        boxB.style.setProperty('--x', temp + 1);
-      }
-      if (e.key === 'ArrowLeft') {
-        const temp = parseFloat(getComputedStyle(boxB).getPropertyValue('--x'));
-        boxB.style.setProperty('--x', temp - 1);
-      }
+      e.preventDefault(); // stop page scrolling
+      if (e.key === 'ArrowDown') setBoxY(boxB, getBoxY(boxB) + 1);
+      if (e.key === 'ArrowUp') setBoxY(boxB, getBoxY(boxB) - 1);
+      if (e.key === 'ArrowRight') setBoxX(boxB, getBoxX(boxB) + 1);
+      if (e.key === 'ArrowLeft') setBoxX(boxB, getBoxX(boxB) - 1);
     },
     false
   );
+
+  // const boxCollideA = (boxA, boxB) => {
+  //   const rectA = boxA.getBoundingClientRect();
+  //   const rectB = boxB.getBoundingClientRect();
+  //   return (
+  //     rectA.top >= rectB.bottom &&
+  //     rectA.bottom >= rectB.top &&
+  //     rectA.left >= rectB.right &&
+  //     rectA.right >= rectB.left
+  //   );
+  // };
+
+  // const boxCollideB = (boxA, boxB) => {};
 
   return parentElement;
 }
