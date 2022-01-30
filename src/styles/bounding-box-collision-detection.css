@@ -1,7 +1,7 @@
 .box-collision {
   height: 100%;
   width: 100%;
-  background: rgba(58, 48, 48, 0.8);
+  background: rgba(204, 176, 176, 0.8);
   position: relative;
 }
 .box-collision__box {
@@ -26,4 +26,11 @@
 
   top: calc(var(--y) * 1%);
   left: calc(var(--x) * 1%);
+}
+.box-collision__info {
+  font-size: 1.5rem;
+  color: rgb(143, 29, 29);
+}
+.box-hit {
+  color: #00aa6d;
 }

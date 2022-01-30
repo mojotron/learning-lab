@@ -10,23 +10,31 @@ export default function BoundingBoxCollision() {
 
   // paras
   const displayElement = createElement('div', 'box-collision__display');
-  const boxATop = createElement('p', 'box-collision__info info-a-top');
-  const boxABottom = createElement('p', 'box-collision__info info-a-bottom');
-  const boxALeft = createElement('p', 'box-collision__info info-a-left');
-  const boxARight = createElement('p', 'box-collision__info info-a-right');
-  const boxBTop = createElement('p', 'box-collision__info info-b-top');
-  const boxBBottom = createElement('p', 'box-collision__info info-b-bottom');
-  const boxBLeft = createElement('p', 'box-collision__info info-b-left');
-  const boxBRight = createElement('p', 'box-collision__info info-b-right');
+  const firstCondition = createElement(
+    'p',
+    'box-collision__info info-first',
+    'box A top <= box B bottom'
+  );
+  const secondCondition = createElement(
+    'p',
+    'box-collision__info info-second',
+    'box A bottom >= box B top'
+  );
+  const thirdCondition = createElement(
+    'p',
+    'box-collision__info info-third',
+    'box A left <= box B right'
+  );
+  const forthCondition = createElement(
+    'p',
+    'box-collision__info info-forth',
+    'box A right >= box B left'
+  );
   displayElement.append(
-    boxATop,
-    boxABottom,
-    boxALeft,
-    boxARight,
-    boxBTop,
-    boxBBottom,
-    boxBLeft,
-    boxBRight
+    firstCondition,
+    secondCondition,
+    thirdCondition,
+    forthCondition
   );
   parentElement.append(displayElement);
 
@@ -61,6 +69,7 @@ export default function BoundingBoxCollision() {
       boxA.style.color = 'rgb(143, 29, 29)';
       boxB.style.color = 'rgb(143, 29, 29)';
     }
+    updateCollisionInfoText(boxA, boxB);
   });
 
   const boxCollide = (box1, box2) => {
@@ -74,7 +83,29 @@ export default function BoundingBoxCollision() {
     );
   };
 
-  // const boxCollideB = (boxA, boxB) => {};
+  // const boxCollideOld = (box1, box2) =>
+  //   box1.offsetTop <= box2.offsetTop + box2.offsetHeight &&
+  //   box1.offsetTop + box1.offsetHeight >= box2.offsetTop &&
+  //   box1.offsetLeft <= box2.offsetLeft + box2.offsetWidth &&
+  //   box1.offsetLeft + box1.offsetWidth >= box2.offsetLeft;
+
+  const updateCollisionInfoText = (box1, box2) => {
+    displayElement
+      .querySelectorAll('.box-collision__info')
+      .forEach(p => p.classList.remove('box-hit'));
+    if (box1.offsetTop <= box2.offsetTop + box2.offsetHeight) {
+      firstCondition.classList.add('box-hit');
+    }
+    if (box1.offsetTop + box1.offsetHeight >= box2.offsetTop) {
+      secondCondition.classList.add('box-hit');
+    }
+    if (box1.offsetLeft <= box2.offsetLeft + box2.offsetWidth) {
+      thirdCondition.classList.add('box-hit');
+    }
+    if (box1.offsetLeft + box1.offsetWidth >= box2.offsetLeft) {
+      forthCondition.classList.add('box-hit');
+    }
+  };
 
   return parentElement;
 }
