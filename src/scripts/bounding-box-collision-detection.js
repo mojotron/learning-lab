@@ -53,6 +53,7 @@ export default function BoundingBoxCollision() {
   };
 
   document.body.addEventListener('keydown', e => {
+    if (!document.querySelector('.box-collision')) return;
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') e.preventDefault(); // stop page scrolling
     if (e.key === 'ArrowDown') setBoxY(boxB, getBoxY(boxB) + 1);
     if (e.key === 'ArrowUp') setBoxY(boxB, getBoxY(boxB) - 1);
