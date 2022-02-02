@@ -31,6 +31,7 @@ body {
 }
 /* showcase */
 .project-showcase {
+  margin-top: 5rem;
   height: 90vh;
   width: 100%;
   padding: 3rem;
@@ -315,4 +316,9 @@ input:focus {
     left: -0.5rem;
     bottom: calc(100% - 2rem);
   }
+}
+/* FOOTER */
+.footer {
+  height: 20vh;
+  background-color: var(--primary-color);
 }

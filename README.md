@@ -31,3 +31,5 @@ https://www.smashingmagazine.com/2012/06/form-field-validation-errors-only-appro
 Webpack image loading.
 
 ## 6. Bounding box collision detection
+
+## 7. Smooth scrolling old and new way

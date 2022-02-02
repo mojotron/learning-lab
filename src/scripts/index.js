@@ -4,6 +4,7 @@ import projectShowcase from './project-showcase';
 import ImageSlider from './image-slider';
 import DropdownMenu from './dropdown-menu';
 import BoundingBoxCollision from './bounding-box-collision-detection';
+import smoothScrolling from './smooth-scrolling';
 
 import image1 from '../images/image1.jpg';
 import image2 from '../images/image2.jpg';
@@ -87,3 +88,11 @@ projectsState.add('image-slider', ImageSlider(image1, image2, image3));
 projectsState.add('form-validation', FormCreateAccount());
 projectsState.add('bounding-box-collision-detection', BoundingBoxCollision());
 projectShowcase.display(projectsState.projects['image-slider']);
+
+// Add smooth scrolling
+document.querySelectorAll('.dropdown__menu__content__link').forEach(link => {
+  smoothScrolling.create(
+    link,
+    document.querySelector('.project-showcase__display')
+  );
+});
