@@ -96,3 +96,19 @@ document.querySelectorAll('.dropdown__menu__content__link').forEach(link => {
     document.querySelector('.project-showcase__display')
   );
 });
+
+// TAB COMPONENT
+const tabsContainer = document.querySelector('.tabs__container');
+const tabBtns = tabsContainer.querySelectorAll('.btn-tab');
+const tabContents = document.querySelectorAll('.tab__content');
+
+tabsContainer.addEventListener('click', e => {
+  if (!e.target.matches('.btn-tab')) return;
+  tabBtns.forEach(btn => btn.classList.remove('btn-tab--active'));
+  e.target.classList.add('btn-tab--active');
+
+  tabContents.forEach(tab => tab.classList.remove('tab__content--active'));
+  document
+    .querySelector(`#tab-content--${e.target.dataset.tabId}`)
+    .classList.add('tab__content--active');
+});

@@ -322,3 +322,62 @@ input:focus {
   height: 20vh;
   background-color: var(--primary-color);
 }
+
+/* TAB COMPONENT */
+.tabs {
+  margin-top: 3rem;
+  background: #363636;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.tabs__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-tab {
+  display: block;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 2rem;
+  padding: 0.3rem 2rem;
+  background: chartreuse;
+  border-radius: 0.5rem;
+  margin: 0 0.5rem;
+  transform: translateY(-100%);
+}
+.btn-tab--active {
+  transform: translateY(-50%);
+  background: gray;
+}
+.tab__content {
+  display: none;
+}
+#tab-content--1 {
+  background-color: chocolate;
+}
+#tab-content--2 {
+  background-color: darkcyan;
+}
+#tab-content--3 {
+  background-color: darkolivegreen;
+}
+.tab__content--active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 50rem;
+}
+
+.tab__content__header {
+  font-size: 4rem;
+}
+.tab__content__text {
+  font-size: 1.8rem;
+}

@@ -33,3 +33,5 @@ Webpack image loading.
 ## 6. Bounding box collision detection
 
 ## 7. Smooth scrolling old and new way
+
+## 8. Tab component
