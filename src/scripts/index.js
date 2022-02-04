@@ -112,3 +112,25 @@ tabsContainer.addEventListener('click', e => {
     .querySelector(`#tab-content--${e.target.dataset.tabId}`)
     .classList.add('tab__content--active');
 });
+
+// Menu fade-in animation
+const nav = document.querySelector('.top-nav');
+const links = nav.querySelectorAll('.top-nav__links__list__item');
+// remove last link and replace it with button selector
+const allLinks = [...links].slice(0, -1);
+allLinks.push(document.querySelector('.dropdown__btn'));
+
+const fadeInHandle = function (e) {
+  if (
+    e.target.classList.contains('top-nav__links__list__item') ||
+    e.target.classList.contains('dropdown__btn')
+  ) {
+    const link = e.target;
+    allLinks.forEach(ele => {
+      if (ele !== link) ele.style.opacity = this.opacity;
+    });
+  }
+};
+
+nav.addEventListener('mouseover', fadeInHandle.bind({ opacity: 0.3 }));
+nav.addEventListener('mouseout', fadeInHandle.bind({ opacity: 1 }));

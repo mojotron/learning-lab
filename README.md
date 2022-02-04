@@ -35,3 +35,7 @@ Webpack image loading.
 ## 7. Smooth scrolling old and new way
 
 ## 8. Tab component
+
+## 9. fade out links
+
+passing argument to eventlistener
