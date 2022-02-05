@@ -134,3 +134,24 @@ const fadeInHandle = function (e) {
 
 nav.addEventListener('mouseover', fadeInHandle.bind({ opacity: 0.3 }));
 nav.addEventListener('mouseout', fadeInHandle.bind({ opacity: 1 }));
+
+/* sticky navigation */
+const stickyNavCB = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (entry.isIntersecting) {
+    document.querySelector('.top-nav').style.position = 'fixed';
+  } else {
+    document.querySelector('.top-nav').style.position = 'relative';
+  }
+};
+const stickyNavOptions = {
+  root: null,
+  threshold: 0.1,
+};
+
+const stickyNavObserver = new IntersectionObserver(
+  stickyNavCB,
+  stickyNavOptions
+);
+stickyNavObserver.observe(tabsContainer);
