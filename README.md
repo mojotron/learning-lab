@@ -39,3 +39,7 @@ Webpack image loading.
 ## 9. fade out links
 
 passing argument to eventlistener
+
+## 10. lazy loading images
+
+IntersectionObserver API

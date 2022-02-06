@@ -135,23 +135,28 @@ const fadeInHandle = function (e) {
 nav.addEventListener('mouseover', fadeInHandle.bind({ opacity: 0.3 }));
 nav.addEventListener('mouseout', fadeInHandle.bind({ opacity: 1 }));
 
-/* sticky navigation */
-const stickyNavCB = function (entries) {
+// Lazy Loading images
+const lazyImages = document.querySelectorAll('.lazy__img');
+
+const lazyObserverCB = (entries, observer) => {
   const [entry] = entries;
   console.log(entry);
   if (entry.isIntersecting) {
-    document.querySelector('.top-nav').style.position = 'fixed';
-  } else {
-    document.querySelector('.top-nav').style.position = 'relative';
+    entry.target.src = entry.target.dataset.src;
+    entry.target.addEventListener('load', e => {
+      e.target.classList.remove('blur');
+    });
+    observer.unobserve(entry.target);
   }
 };
-const stickyNavOptions = {
+const lazyOptions = {
   root: null,
-  threshold: 0.1,
+  threshold: 0.5,
+  rootMargin: '100px', // to preload image
 };
-
-const stickyNavObserver = new IntersectionObserver(
-  stickyNavCB,
-  stickyNavOptions
+const lazyImagesObserver = new IntersectionObserver(
+  lazyObserverCB,
+  lazyOptions
 );
-stickyNavObserver.observe(tabsContainer);
+
+lazyImages.forEach(img => lazyImagesObserver.observe(img));
